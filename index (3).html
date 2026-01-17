@@ -1,0 +1,2389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mrs Monica Geingos Initiative - Investment Platform</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f2137 100%);
+        }
+        .card-gradient {
+            background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+        }
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        .stats-card {
+            transition: all 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .login-btn:hover {
+            transform: scale(1.05);
+        }
+        .hidden-section {
+            display: none;
+        }
+        .pulse-ring {
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0; }
+            100% { transform: scale(0.8); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 gradient-bg shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center gap-2">
+                            <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-chart-line text-white text-xl"></i>
+                            </div>
+                            <span class="text-xl font-bold text-yellow-500">MGI</span>
+                        </div>
+                    </div>
+                    <span class="ml-3 text-white font-semibold text-lg hidden md:block">Mrs Monica Geingos Initiative</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" onclick="showSection('home')" class="hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition">Home</a>
+                        <a href="#" onclick="showSection('about')" class="hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition">About</a>
+                        <a href="#" onclick="showSection('plans')" class="hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition">Investment Plans</a>
+                        <a href="#" onclick="showSection('testimonials')" class="hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition">Testimonials</a>
+                        <a href="#" onclick="showSection('contact')" class="hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="showSection('login')" class="bg-transparent border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-gray-900 px-4 py-2 rounded-lg text-sm font-medium transition login-btn">
+                        Login
+                    </button>
+                    <button onclick="showSection('register')" class="bg-yellow-500 text-gray-900 hover:bg-yellow-400 px-4 py-2 rounded-lg text-sm font-medium transition login-btn">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <!-- Hero Section -->
+            <div class="gradient-bg py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="inline-block bg-yellow-500/20 text-yellow-500 px-4 py-1 rounded-full text-sm font-medium mb-4">
+                                <i class="fas fa-shield-alt mr-2"></i>Licensed & Regulated Investment Platform
+                            </div>
+                            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                                Grow Your Wealth with <span class="text-yellow-500">Mrs Monica Geingos Initiative</span>
+                            </h1>
+                            <p class="text-xl text-gray-300 mb-8">
+                                Join thousands of investors worldwide who trust our platform for secure, profitable, and sustainable investment solutions. Get a <span class="text-yellow-500 font-bold">$5 Welcome Bonus</span> upon registration!
+                            </p>
+                            <div class="flex gap-4">
+                                <button onclick="showSection('register')" class="bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-yellow-400 transition transform hover:scale-105">
+                                    <i class="fas fa-rocket mr-2"></i>Start Investing Now
+                                </button>
+                                <button onclick="showSection('about')" class="border border-white text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-white/10 transition">
+                                    Learn More
+                                </button>
+                            </div>
+                            <div class="mt-8 flex items-center gap-8">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-yellow-500">50K+</div>
+                                    <div class="text-sm text-gray-400">Active Investors</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-yellow-500">$45M+</div>
+                                    <div class="text-sm text-gray-400">Total Payouts</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-yellow-500">99.9%</div>
+                                    <div class="text-sm text-gray-400">Uptime</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="card-gradient rounded-2xl p-8 border border-white/10 float-animation">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div>
+                                        <p class="text-gray-400 text-sm">Total Balance</p>
+                                        <p class="text-4xl font-bold text-yellow-500">$12,458.00</p>
+                                    </div>
+                                    <div class="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-wallet text-yellow-500 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-800/50 rounded-xl p-4 mb-4">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-gray-400">Daily Profit</span>
+                                        <span class="text-green-400 font-bold">+$156.80</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-400">Total ROI</span>
+                                        <span class="text-yellow-500 font-bold">+245.8%</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <button class="bg-yellow-500 text-gray-900 py-3 rounded-lg font-medium hover:bg-yellow-400 transition">
+                                        <i class="fas fa-plus mr-1"></i> Deposit
+                                    </button>
+                                    <button class="border border-yellow-500 text-yellow-500 py-3 rounded-lg font-medium hover:bg-yellow-500/10 transition">
+                                        <i class="fas fa-arrow-up mr-1"></i> Withdraw
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Pulse Ring Effect -->
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-4 border-yellow-500 rounded-full pulse-ring"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="py-16 bg-gray-800/50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose <span class="text-yellow-500">MGI</span>?</h2>
+                        <p class="text-gray-400 max-w-2xl mx-auto">Our platform offers industry-leading features designed to maximize your investment returns while maintaining the highest security standards.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="card-gradient rounded-xl p-6 border border-white/10 stats-card">
+                            <div class="w-14 h-14 bg-yellow-500/20 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-shield-alt text-yellow-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Secure & Regulated</h3>
+                            <p class="text-gray-400 text-sm">Fully licensed and regulated investment platform with bank-level security protocols.</p>
+                        </div>
+                        <div class="card-gradient rounded-xl p-6 border border-white/10 stats-card">
+                            <div class="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-percentage text-green-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">High Returns</h3>
+                            <p class="text-gray-400 text-sm">Earn up to 45% ROI on your investments with our premium investment packages.</p>
+                        </div>
+                        <div class="card-gradient rounded-xl p-6 border border-white/10 stats-card">
+                            <div class="w-14 h-14 bg-blue-500/20 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-clock text-blue-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Instant Payouts</h3>
+                            <p class="text-gray-400 text-sm">Withdraw your profits instantly with our fast processing system. 24/7 withdrawal support.</p>
+                        </div>
+                        <div class="card-gradient rounded-xl p-6 border border-white/10 stats-card">
+                            <div class="w-14 h-14 bg-purple-500/20 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-users text-purple-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Referral Bonus</h3>
+                            <p class="text-gray-400 text-sm">Earn $5 for each friend you refer and 10% of their lifetime investments!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section hidden-section">
+            <div class="gradient-bg py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-4">About <span class="text-yellow-500">Mrs Monica Geingos Initiative</span></h2>
+                        <p class="text-xl text-gray-300 max-w-4xl mx-auto">Empowering investors globally since 2018 with transparent, secure, and profitable investment solutions.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                            <p class="text-gray-300 mb-4">At Mrs Monica Geingos Initiative, we believe in democratizing wealth creation. Our mission is to provide everyday investors with access to the same quality investment opportunities that were previously reserved for institutional investors and the ultra-wealthy.</p>
+                            <p class="text-gray-300 mb-4">Founded by Monica Geingos, a renowned entrepreneur and investor, our platform has helped over 50,000 investors achieve their financial goals through smart, diversified investment strategies.</p>
+                            <div class="flex gap-4 mt-6">
+                                <div class="bg-white/10 rounded-lg px-4 py-3">
+                                    <div class="text-2xl font-bold text-yellow-500">5+</div>
+                                    <div class="text-sm text-gray-400">Years Experience</div>
+                                </div>
+                                <div class="bg-white/10 rounded-lg px-4 py-3">
+                                    <div class="text-2xl font-bold text-yellow-500">50K+</div>
+                                    <div class="text-sm text-gray-400">Investors</div>
+                                </div>
+                                <div class="bg-white/10 rounded-lg px-4 py-3">
+                                    <div class="text-2xl font-bold text-yellow-500">45+</div>
+                                    <div class="text-sm text-gray-400">Countries</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-gradient rounded-2xl p-8 border border-white/10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-user-tie text-gray-900 text-3xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold">Mrs Monica Geingos</h4>
+                                    <p class="text-yellow-500">Founder & CEO</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">"Our vision is simple: to create a world where anyone, regardless of their background, can grow their wealth through intelligent, secure investments."</p>
+                            <div class="border-t border-white/10 pt-4">
+                                <div class="flex items-center gap-2 text-sm text-gray-400">
+                                    <i class="fas fa-check-circle text-green-400"></i>
+                                    MBA, Harvard Business School
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-gray-400">
+                                    <i class="fas fa-check-circle text-green-400"></i>
+                                    20+ Years in Finance
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-gray-400">
+                                    <i class="fas fa-check-circle text-green-400"></i>
+                                    Featured in Forbes & Bloomberg
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plans Section -->
+        <section id="plans" class="section hidden-section">
+            <div class="gradient-bg py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-4">Investment <span class="text-yellow-500">Plans</span></h2>
+                        <p class="text-gray-400 max-w-2xl mx-auto">Choose the perfect investment plan that suits your financial goals. All plans include our $5 signup bonus!</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Starter Plan -->
+                        <div class="card-gradient rounded-2xl p-6 border border-white/10 stats-card relative">
+                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">Popular</div>
+                            <h3 class="text-xl font-bold mb-2">Starter</h3>
+                            <div class="text-3xl font-bold text-yellow-500 mb-1">$50</div>
+                            <p class="text-gray-400 text-sm mb-4">Minimum Deposit</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>15% ROI after 7 days</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>Daily profit accrual</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>$5 signup bonus included</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>24/7 Support</span>
+                                </li>
+                            </ul>
+                            <button onclick="selectPlan('Starter', 50)" class="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-bold hover:bg-yellow-400 transition">
+                                Select Plan
+                            </button>
+                        </div>
+
+                        <!-- Silver Plan -->
+                        <div class="card-gradient rounded-2xl p-6 border border-white/10 stats-card">
+                            <h3 class="text-xl font-bold mb-2">Silver</h3>
+                            <div class="text-3xl font-bold text-yellow-500 mb-1">$200</div>
+                            <p class="text-gray-400 text-sm mb-4">Minimum Deposit</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>25% ROI after 14 days</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>Priority support</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>$5 signup bonus included</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>Early withdrawal option</span>
+                                </li>
+                            </ul>
+                            <button onclick="selectPlan('Silver', 200)" class="w-full bg-transparent border border-yellow-500 text-yellow-500 py-3 rounded-lg font-bold hover:bg-yellow-500 hover:text-gray-900 transition">
+                                Select Plan
+                            </button>
+                        </div>
+
+                        <!-- Gold Plan -->
+                        <div class="card-gradient rounded-2xl p-6 border border-white/10 stats-card">
+                            <h3 class="text-xl font-bold mb-2">Gold</h3>
+                            <div class="text-3xl font-bold text-yellow-500 mb-1">$500</div>
+                            <p class="text-gray-400 text-sm mb-4">Minimum Deposit</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>35% ROI after 21 days</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>VIP support line</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>$5 signup bonus included</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>Investment insurance</span>
+                                </li>
+                            </ul>
+                            <button onclick="selectPlan('Gold', 500)" class="w-full bg-transparent border border-yellow-500 text-yellow-500 py-3 rounded-lg font-bold hover:bg-yellow-500 hover:text-gray-900 transition">
+                                Select Plan
+                            </button>
+                        </div>
+
+                        <!-- Platinum Plan -->
+                        <div class="card-gradient rounded-2xl p-6 border border-white/10 stats-card">
+                            <h3 class="text-xl font-bold mb-2">Platinum</h3>
+                            <div class="text-3xl font-bold text-yellow-500 mb-1">$1,000</div>
+                            <p class="text-gray-400 text-sm mb-4">Minimum Deposit</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>45% ROI after 30 days</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>Dedicated account manager</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>$5 signup bonus included</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-400"></i>
+                                    <span>Full insurance coverage</span>
+                                </li>
+                            </ul>
+                            <button onclick="selectPlan('Platinum', 1000)" class="w-full bg-transparent border border-yellow-500 text-yellow-500 py-3 rounded-lg font-bold hover:bg-yellow-500 hover:text-gray-900 transition">
+                                Select Plan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section hidden-section">
+            <div class="gradient-bg py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-4">What Our <span class="text-yellow-500">Investors Say</span></h2>
+                        <p class="text-gray-400">Real testimonials from real investors</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="card-gradient rounded-xl p-6 border border-white/10">
+                            <div class="flex items-center gap-1 mb-4">
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                            </div>
+                            <p class="text-gray-300 mb-4">"I've been investing with MGI for 2 years now. The returns are consistent and the platform is very reliable. The $5 signup bonus was a nice touch!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-gray-900 font-bold">JD</div>
+                                <div>
+                                    <div class="font-semibold">John Doe</div>
+                                    <div class="text-sm text-gray-400">Investor since 2022</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-gradient rounded-xl p-6 border border-white/10">
+                            <div class="flex items-center gap-1 mb-4">
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                            </div>
+                            <p class="text-gray-300 mb-4">"The Platinum plan has given me amazing returns. Withdrawal is instant and their customer support is top-notch. Highly recommend!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">SM</div>
+                                <div>
+                                    <div class="font-semibold">Sarah M.</div>
+                                    <div class="text-sm text-gray-400">Investor since 2021</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-gradient rounded-xl p-6 border border-white/10">
+                            <div class="flex items-center gap-1 mb-4">
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <i class="fas fa-star text-yellow-500"></i>
+                            </div>
+                            <p class="text-gray-300 mb-4">"Best investment platform I've used. The referral bonus of $5 per signup has helped me earn extra income. The platform is completely legitimate!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">MK</div>
+                                <div>
+                                    <div class="font-semibold">Michael K.</div>
+                                    <div class="text-sm text-gray-400">Investor since 2023</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section hidden-section">
+            <div class="gradient-bg py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold mb-4">Contact <span class="text-yellow-500">Us</span></h2>
+                        <p class="text-gray-400">We're here to help you 24/7</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10 mb-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-yellow-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Our Location</h4>
+                                        <p class="text-gray-400 text-sm">Windhoek, Namibia</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10 mb-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-yellow-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Email Us</h4>
+                                        <p class="text-gray-400 text-sm">support@mgi-investments.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone text-yellow-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Call Us</h4>
+                                        <p class="text-gray-400 text-sm">+264 81 123 4567</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-gradient rounded-xl p-6 border border-white/10">
+                            <form id="contactForm" onsubmit="submitContact(event)">
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium mb-2">Your Name</label>
+                                    <input type="text" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="John Doe" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium mb-2">Email Address</label>
+                                    <input type="email" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="john@example.com" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium mb-2">Subject</label>
+                                    <select class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500">
+                                        <option>General Inquiry</option>
+                                        <option>Investment Question</option>
+                                        <option>Withdrawal Issue</option>
+                                        <option>Technical Support</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium mb-2">Message</label>
+                                    <textarea class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500 h-32" placeholder="How can we help you?"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-bold hover:bg-yellow-400 transition">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login" class="section hidden-section">
+            <div class="gradient-bg min-h-screen flex items-center justify-center py-12 px-4">
+                <div class="max-w-md w-full">
+                    <div class="card-gradient rounded-2xl p-8 border border-white/10">
+                        <div class="text-center mb-8">
+                            <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-chart-line text-gray-900 text-2xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold">Welcome Back</h2>
+                            <p class="text-gray-400">Sign in to your account</p>
+                        </div>
+                        <form id="loginForm" onsubmit="handleLogin(event)">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Email Address</label>
+                                <input type="email" id="loginEmail" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="you@example.com" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Password</label>
+                                <input type="password" id="loginPassword" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="••••••••" required>
+                            </div>
+                            <div class="flex items-center justify-between mb-6">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="w-4 h-4 text-yellow-500 bg-gray-800 border-white/20 rounded">
+                                    <span class="ml-2 text-sm text-gray-400">Remember me</span>
+                                </label>
+                                <a href="#" class="text-sm text-yellow-500 hover:text-yellow-400">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-bold hover:bg-yellow-400 transition">
+                                Sign In
+                            </button>
+                        </form>
+                        <div class="mt-6 text-center">
+                            <p class="text-gray-400">Don't have an account? <a href="#" onclick="showSection('register')" class="text-yellow-500 hover:text-yellow-400">Sign up</a></p>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-white/10">
+                            <p class="text-center text-sm text-gray-400 mb-4">Admin Access</p>
+                            <button onclick="showSection('admin')" class="w-full bg-transparent border border-purple-500 text-purple-500 py-2 rounded-lg text-sm hover:bg-purple-500 hover:text-white transition">
+                                <i class="fas fa-user-shield mr-2"></i>Admin Login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Register Section -->
+        <section id="register" class="section hidden-section">
+            <div class="gradient-bg min-h-screen flex items-center justify-center py-12 px-4">
+                <div class="max-w-md w-full">
+                    <div class="card-gradient rounded-2xl p-8 border border-white/10">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user-plus text-gray-900 text-2xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold">Create Account</h2>
+                            <p class="text-gray-400">Get $5 bonus on registration!</p>
+                        </div>
+                        <div class="bg-green-500/20 border border-green-500/50 rounded-lg p-3 mb-6">
+                            <div class="flex items-center gap-2 text-green-400">
+                                <i class="fas fa-gift"></i>
+                                <span class="text-sm font-medium">+$5 Welcome Bonus credited after registration!</span>
+                            </div>
+                        </div>
+                        <form id="registerForm" onsubmit="handleRegister(event)">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Full Name</label>
+                                <input type="text" id="regName" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="John Doe" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Email Address</label>
+                                <input type="email" id="regEmail" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="you@example.com" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="regPhone" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="+1 234 567 8900" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Referral Code (Optional)</label>
+                                <input type="text" id="regRef" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="Enter referral code">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Password</label>
+                                <input type="password" id="regPassword" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="••••••••" required>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium mb-2">Confirm Password</label>
+                                <input type="password" id="regConfirmPassword" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="••••••••" required>
+                            </div>
+                            <div class="mb-6">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="w-4 h-4 text-yellow-500 bg-gray-800 border-white/20 rounded" required>
+                                    <span class="ml-2 text-sm text-gray-400">I agree to the <a href="#" class="text-yellow-500">Terms & Conditions</a></span>
+                                </label>
+                            </div>
+                            <button type="submit" class="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-bold hover:bg-yellow-400 transition">
+                                Create Account & Get $5 Bonus
+                            </button>
+                        </form>
+                        <div class="mt-6 text-center">
+                            <p class="text-gray-400">Already have an account? <a href="#" onclick="showSection('login')" class="text-yellow-500 hover:text-yellow-400">Sign in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Section -->
+        <section id="admin" class="section hidden-section">
+            <div class="gradient-bg min-h-screen flex items-center justify-center py-12 px-4">
+                <div class="max-w-md w-full">
+                    <div class="card-gradient rounded-2xl p-8 border border-white/10">
+                        <div class="text-center mb-8">
+                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-shield-alt text-white text-2xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-purple-400">Admin Portal</h2>
+                            <p class="text-gray-400">Restricted access - Authorized personnel only</p>
+                        </div>
+                        <form id="adminForm" onsubmit="handleAdminLogin(event)">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Admin ID</label>
+                                <input type="text" id="adminId" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" placeholder="admin" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Password</label>
+                                <input type="password" id="adminPassword" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" placeholder="••••••••" required>
+                            </div>
+                            <div class="mb-6">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="w-4 h-4 text-purple-500 bg-gray-800 border-white/20 rounded">
+                                    <span class="ml-2 text-sm text-gray-400">I'm an authorized administrator</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="w-full bg-purple-500 text-white py-3 rounded-lg font-bold hover:bg-purple-400 transition">
+                                <i class="fas fa-sign-in-alt mr-2"></i>Access Admin Panel
+                            </button>
+                        </form>
+                        <div class="mt-6 text-center">
+                            <button onclick="showSection('login')" class="text-gray-400 hover:text-white text-sm">
+                                <i class="fas fa-arrow-left mr-2"></i>Back to User Login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Dashboard -->
+        <section id="dashboard" class="section hidden-section">
+            <div class="gradient-bg min-h-screen">
+                <!-- Dashboard Header -->
+                <div class="bg-gray-800/50 border-b border-white/10">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <button onclick="toggleSidebar()" class="md:hidden text-white">
+                                    <i class="fas fa-bars text-xl"></i>
+                                </button>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-gray-900 font-bold">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <p id="dashUserName" class="font-semibold">John Doe</p>
+                                        <p class="text-xs text-yellow-500"><i class="fas fa-check-circle"></i> Verified Account</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
+                                    <i class="fas fa-wallet mr-1"></i> Balance: $<span id="dashBalance">5.00</span>
+                                </div>
+                                <button onclick="logout()" class="text-gray-400 hover:text-white transition">
+                                    <i class="fas fa-sign-out-alt text-xl"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <!-- Sidebar -->
+                    <aside id="sidebar" class="hidden md:block w-64 min-h-screen bg-gray-800/30 border-r border-white/10 p-4">
+                        <nav class="space-y-2">
+                            <a href="#" onclick="showDashboardSection('overview')" class="dash-nav flex items-center gap-3 px-4 py-3 rounded-lg bg-yellow-500/20 text-yellow-500">
+                                <i class="fas fa-home"></i>
+                                <span>Overview</span>
+                            </a>
+                            <a href="#" onclick="showDashboardSection('deposit')" class="dash-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Deposit</span>
+                            </a>
+                            <a href="#" onclick="showDashboardSection('withdraw')" class="dash-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>Withdraw</span>
+                            </a>
+                            <a href="#" onclick="showDashboardSection('investments')" class="dash-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-chart-line"></i>
+                                <span>My Investments</span>
+                            </a>
+                            <a href="#" onclick="showDashboardSection('referrals')" class="dash-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-users"></i>
+                                <span>Referrals</span>
+                            </a>
+                            <a href="#" onclick="showDashboardSection('transactions')" class="dash-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-list"></i>
+                                <span>Transactions</span>
+                            </a>
+                            <a href="#" onclick="showDashboardSection('notifications')" class="dash-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </a>
+                            <a href="#" onclick="showDashboardSection('support')" class="dash-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-headset"></i>
+                                <span>Customer Service</span>
+                            </a>
+                        </nav>
+                    </aside>
+
+                    <!-- Dashboard Content -->
+                    <div class="flex-1 p-6">
+                        <!-- Overview Section -->
+                        <div id="dash-overview" class="dash-section">
+                            <h2 class="text-2xl font-bold mb-6">Dashboard Overview</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                                <div class="card-gradient rounded-xl p-6 border border-white/10 stats-card">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-wallet text-yellow-500 text-xl"></i>
+                                        </div>
+                                        <span class="text-green-400 text-sm"><i class="fas fa-arrow-up"></i> 12.5%</span>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">Total Balance</p>
+                                    <p class="text-2xl font-bold text-white">$<span id="overviewBalance">5.00</span></p>
+                                </div>
+                                <div class="card-gradient rounded-xl p-6 border border-white/10 stats-card">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-coins text-green-500 text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">Total Profit</p>
+                                    <p class="text-2xl font-bold text-white">$0.00</p>
+                                </div>
+                                <div class="card-gradient rounded-xl p-6 border border-white/10 stats-card">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-money-bill-wave text-blue-500 text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">Total Deposits</p>
+                                    <p class="text-2xl font-bold text-white">$0.00</p>
+                                </div>
+                                <div class="card-gradient rounded-xl p-6 border border-white/10 stats-card">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-users text-purple-500 text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">Referrals Earned</p>
+                                    <p class="text-2xl font-bold text-white">$0.00</p>
+                                </div>
+                            </div>
+
+                            <!-- Active Investments -->
+                            <div class="card-gradient rounded-xl p-6 border border-white/10 mb-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-xl font-bold">Active Investments</h3>
+                                    <button onclick="showDashboardSection('plans')" class="text-yellow-500 hover:text-yellow-400 text-sm">
+                                        View All Plans <i class="fas fa-arrow-right ml-1"></i>
+                                    </button>
+                                </div>
+                                <div id="activeInvestments" class="space-y-4">
+                                    <div class="bg-gray-800/50 rounded-lg p-4 text-center py-8">
+                                        <i class="fas fa-chart-line text-4xl text-gray-600 mb-3"></i>
+                                        <p class="text-gray-400">No active investments yet</p>
+                                        <button onclick="showDashboardSection('plans')" class="mt-3 bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-medium hover:bg-yellow-400 transition">
+                                            Start Investing
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Transactions -->
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <h3 class="text-xl font-bold mb-4">Recent Transactions</h3>
+                                <div id="recentTransactions" class="space-y-3">
+                                    <div class="flex items-center justify-between bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-gift text-green-500"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-medium">Signup Bonus</p>
+                                                <p class="text-xs text-gray-400">Welcome bonus credit</p>
+                                            </div>
+                                        </div>
+                                        <span class="text-green-400 font-bold">+$5.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deposit Section -->
+                        <div id="dash-deposit" class="dash-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Make a Deposit</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10 max-w-2xl">
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2">Select Payment Method</label>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        <button onclick="selectPayment('bitcoin')" class="payment-method p-4 border border-yellow-500 bg-yellow-500/20 rounded-lg text-center">
+                                            <i class="fab fa-bitcoin text-3xl text-yellow-500 mb-2"></i>
+                                            <p class="text-sm font-medium">Bitcoin</p>
+                                        </button>
+                                        <button onclick="selectPayment('ethereum')" class="payment-method p-4 border border-white/20 rounded-lg text-center hover:border-yellow-500">
+                                            <i class="fab fa-ethereum text-3xl text-blue-400 mb-2"></i>
+                                            <p class="text-sm font-medium">Ethereum</p>
+                                        </button>
+                                        <button onclick="selectPayment('usdt')" class="payment-method p-4 border border-white/20 rounded-lg text-center hover:border-yellow-500">
+                                            <i class="fas fa-dollar-sign text-3xl text-green-400 mb-2"></i>
+                                            <p class="text-sm font-medium">USDT</p>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2">Amount (USD)</label>
+                                    <input type="number" id="depositAmount" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="Minimum $50" min="50">
+                                </div>
+                                <button onclick="processDeposit()" class="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-bold hover:bg-yellow-400 transition">
+                                    <i class="fas fa-credit-card mr-2"></i>Proceed to Payment
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Withdraw Section -->
+                        <div id="dash-withdraw" class="dash-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Withdraw Funds</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10 max-w-2xl">
+                                <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-6">
+                                    <div class="flex items-center gap-2 text-yellow-500">
+                                        <i class="fas fa-info-circle"></i>
+                                        <span>Available balance: $<span id="withdrawBalance">5.00</span></span>
+                                    </div>
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2">Withdrawal Amount (USD)</label>
+                                    <input type="number" id="withdrawAmount" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="Enter amount" min="10">
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium mb-2">Wallet Address</label>
+                                    <input type="text" id="walletAddress" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="Enter your wallet address">
+                                </div>
+                                <button onclick="processWithdrawal()" class="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-bold hover:bg-yellow-400 transition">
+                                    <i class="fas fa-arrow-up mr-2"></i>Request Withdrawal
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Investments Section -->
+                        <div id="dash-investments" class="dash-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">My Investments</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <div id="myInvestments" class="text-center py-8">
+                                    <i class="fas fa-chart-line text-4xl text-gray-600 mb-3"></i>
+                                    <p class="text-gray-400">No investments yet</p>
+                                    <button onclick="showDashboardSection('plans')" class="mt-3 bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-medium hover:bg-yellow-400 transition">
+                                        Browse Plans
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Referrals Section -->
+                        <div id="dash-referrals" class="dash-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Referral Program</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10 mb-6">
+                                <div class="text-center mb-6">
+                                    <p class="text-gray-400 mb-2">Your Referral Code</p>
+                                    <div class="bg-gray-800 rounded-lg p-4 inline-block">
+                                        <p id="referralCode" class="text-2xl font-bold text-yellow-500">MGI-XXXXX</p>
+                                    </div>
+                                    <button onclick="copyReferralCode()" class="ml-3 text-sm text-gray-400 hover:text-white">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-400 mb-2">Share your code and earn <span class="text-green-400 font-bold">$5</span> for each signup!</p>
+                                    <div class="flex justify-center gap-3">
+                                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-500 transition">
+                                            <i class="fab fa-facebook mr-2"></i>Share
+                                        </button>
+                                        <button class="bg-sky-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-sky-400 transition">
+                                            <i class="fab fa-twitter mr-2"></i>Tweet
+                                        </button>
+                                        <button class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-400 transition">
+                                            <i class="fab fa-whatsapp mr-2"></i>Share
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <h3 class="text-xl font-bold mb-4">Your Referrals</h3>
+                                <div id="referralList" class="text-center py-4">
+                                    <p class="text-gray-400">No referrals yet. Start sharing!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Transactions Section -->
+                        <div id="dash-transactions" class="dash-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Transaction History</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <div class="overflow-x-auto">
+                                    <table class="w-full">
+                                        <thead>
+                                            <tr class="text-left text-gray-400 text-sm border-b border-white/10">
+                                                <th class="pb-3">Date</th>
+                                                <th class="pb-3">Type</th>
+                                                <th class="pb-3">Amount</th>
+                                                <th class="pb-3">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="transactionTable">
+                                            <tr class="border-b border-white/5">
+                                                <td class="py-3">Just now</td>
+                                                <td class="py-3"><i class="fas fa-gift text-yellow-500 mr-2"></i>Signup Bonus</td>
+                                                <td class="py-3 text-green-400">+$5.00</td>
+                                                <td class="py-3"><span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">Completed</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notifications Section -->
+                        <div id="dash-notifications" class="dash-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Notifications</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <div class="flex items-center justify-between mb-4">
+                                    <p class="text-gray-400 text-sm">Account alerts, withdrawal updates, and admin messages.</p>
+                                    <button onclick="clearUserNotifications()" class="text-sm text-red-400 hover:text-red-300">Clear All</button>
+                                </div>
+                                <div id="userNotificationsList" class="space-y-4">
+                                    <p class="text-gray-400 text-center py-4">No notifications yet</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Service Section -->
+                        <div id="dash-support" class="dash-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Customer Service</h2>
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                <div class="lg:col-span-2 card-gradient rounded-xl p-6 border border-white/10">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="text-lg font-semibold">Private Chat with Admin</h3>
+                                        <span class="text-xs text-green-400"><i class="fas fa-circle"></i> Online</span>
+                                    </div>
+                                    <div id="supportChat" class="bg-gray-800/50 rounded-lg p-4 h-80 overflow-y-auto space-y-4">
+                                        <div class="text-center text-gray-500 text-sm">Start a conversation with our admin support team.</div>
+                                    </div>
+                                    <form onsubmit="sendSupportMessage(event)" class="mt-4 flex gap-3">
+                                        <input type="text" id="supportMessage" class="flex-1 bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500" placeholder="Type your message..." required>
+                                        <button type="submit" class="bg-yellow-500 text-gray-900 px-5 py-3 rounded-lg font-bold hover:bg-yellow-400 transition">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                    <h3 class="text-lg font-semibold mb-4">Support Details</h3>
+                                    <div class="space-y-4 text-sm text-gray-300">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-user-shield text-yellow-500"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold">Admin Support</p>
+                                                <p class="text-gray-400">Personal account assistance</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-comments text-green-400"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold">Private Chat</p>
+                                                <p class="text-gray-400">Secure, private conversations</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-headset text-blue-400"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold">24/7 Support</p>
+                                                <p class="text-gray-400">Always available for help</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Dashboard -->
+        <section id="adminDashboard" class="section hidden-section">
+            <div class="gradient-bg min-h-screen">
+                <!-- Admin Header -->
+                <div class="bg-purple-900/50 border-b border-purple-500/30">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <button onclick="toggleAdminSidebar()" class="md:hidden text-white">
+                                    <i class="fas fa-bars text-xl"></i>
+                                </button>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Admin Control Panel</p>
+                                        <p class="text-xs text-purple-400"><i class="fas fa-circle text-green-400"></i> Online</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="text-purple-400 text-sm">
+                                    <i class="fas fa-clock mr-1"></i> <span id="adminTime"></span>
+                                </span>
+                                <button onclick="adminLogout()" class="text-gray-400 hover:text-white transition">
+                                    <i class="fas fa-sign-out-alt text-xl"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <!-- Admin Sidebar -->
+                    <aside id="adminSidebar" class="hidden md:block w-64 min-h-screen bg-purple-900/30 border-r border-purple-500/30 p-4">
+                        <nav class="space-y-2">
+                            <a href="#" onclick="showAdminSection('adminOverview')" class="admin-nav flex items-center gap-3 px-4 py-3 rounded-lg bg-purple-500/20 text-purple-400">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                            <a href="#" onclick="showAdminSection('users')" class="admin-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-purple-500/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-users"></i>
+                                <span>Users</span>
+                            </a>
+                            <a href="#" onclick="showAdminSection('allInvestments')" class="admin-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-purple-500/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Investments</span>
+                            </a>
+                            <a href="#" onclick="showAdminSection('deposits')" class="admin-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-purple-500/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Deposits</span>
+                            </a>
+                            <a href="#" onclick="showAdminSection('withdrawals')" class="admin-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-purple-500/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Withdrawals</span>
+                            </a>
+                            <a href="#" onclick="showAdminSection('notifications')" class="admin-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-purple-500/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                                <span id="adminNotifBadge" class="ml-auto text-xs bg-red-500 text-white px-2 py-0.5 rounded-full hidden">0</span>
+                            </a>
+                            <a href="#" onclick="showAdminSection('support')" class="admin-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-purple-500/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-headset"></i>
+                                <span>Support Chat</span>
+                            </a>
+                            <a href="#" onclick="showAdminSection('settings')" class="admin-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-purple-500/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                            <a href="#" onclick="showAdminSection('broadcast')" class="admin-nav flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-purple-500/10 text-gray-400 hover:text-white transition">
+                                <i class="fas fa-bullhorn"></i>
+                                <span>Broadcast</span>
+                            </a>
+                        </nav>
+                    </aside>
+
+                    <!-- Admin Content -->
+                    <div class="flex-1 p-6">
+                        <!-- Admin Overview -->
+                        <div id="admin-overview" class="admin-section">
+                            <h2 class="text-2xl font-bold mb-6">Admin Dashboard</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                                <div class="bg-purple-500/20 rounded-xl p-6 border border-purple-500/30">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="w-12 h-12 bg-purple-500/30 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-users text-purple-400 text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">Total Users</p>
+                                    <p id="totalUsers" class="text-3xl font-bold text-white">0</p>
+                                </div>
+                                <div class="bg-green-500/20 rounded-xl p-6 border border-green-500/30">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="w-12 h-12 bg-green-500/30 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-dollar-sign text-green-400 text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">Total Deposits</p>
+                                    <p id="totalDeposits" class="text-3xl font-bold text-white">$0</p>
+                                </div>
+                                <div class="bg-yellow-500/20 rounded-xl p-6 border border-yellow-500/30">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="w-12 h-12 bg-yellow-500/30 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-money-bill-wave text-yellow-400 text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">Total Withdrawals</p>
+                                    <p id="totalWithdrawals" class="text-3xl font-bold text-white">$0</p>
+                                </div>
+                                <div class="bg-blue-500/20 rounded-xl p-6 border border-blue-500/30">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="w-12 h-12 bg-blue-500/30 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-chart-line text-blue-400 text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-400 text-sm">Active Investments</p>
+                                    <p id="activeInvestmentsCount" class="text-3xl font-bold text-white">0</p>
+                                </div>
+                            </div>
+
+                            <!-- Recent Users -->
+                            <div class="bg-gray-800/50 rounded-xl p-6 border border-white/10">
+                                <h3 class="text-xl font-bold mb-4">Recent Users</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full">
+                                        <thead>
+                                            <tr class="text-left text-gray-400 text-sm border-b border-white/10">
+                                                <th class="pb-3">User</th>
+                                                <th class="pb-3">Email</th>
+                                                <th class="pb-3">Balance</th>
+                                                <th class="pb-3">Joined</th>
+                                                <th class="pb-3">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="adminUsersTable">
+                                            <!-- Users will be populated here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Users Management -->
+                        <div id="admin-users" class="admin-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">User Management</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10 mb-6">
+                                <div class="flex gap-4 mb-4">
+                                    <input type="text" placeholder="Search users..." class="flex-1 bg-gray-800 border border-white/20 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500">
+                                    <select class="bg-gray-800 border border-white/20 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500">
+                                        <option>All Users</option>
+                                        <option>Active</option>
+                                        <option>Suspended</option>
+                                    </select>
+                                </div>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full">
+                                        <thead>
+                                            <tr class="text-left text-gray-400 text-sm border-b border-white/10">
+                                                <th class="pb-3">User</th>
+                                                <th class="pb-3">Email</th>
+                                                <th class="pb-3">Balance</th>
+                                                <th class="pb-3">Status</th>
+                                                <th class="pb-3">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="usersManagementTable">
+                                            <!-- Users will be populated here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="card-gradient rounded-xl p-6 border border-white/10 max-w-3xl">
+                                <h3 class="text-lg font-semibold mb-4">Edit User Portfolio</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Select User</label>
+                                        <select id="portfolioUserSelect" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500">
+                                            <option value="">Choose a user</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Update Balance ($)</label>
+                                        <input type="number" id="portfolioBalance" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" placeholder="Enter new balance">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Add Profit ($)</label>
+                                        <input type="number" id="portfolioProfit" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" placeholder="Enter profit amount">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Add Bonus ($)</label>
+                                        <input type="number" id="portfolioBonus" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" placeholder="Enter bonus amount">
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <label class="block text-sm font-medium mb-2">Admin Note</label>
+                                    <textarea id="portfolioNote" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 h-24 focus:outline-none focus:border-purple-500" placeholder="Add a note for this portfolio update..."></textarea>
+                                </div>
+                                <button onclick="updateUserPortfolio()" class="mt-4 bg-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-purple-400 transition">
+                                    <i class="fas fa-pen mr-2"></i>Update Portfolio
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- All Investments -->
+                        <div id="admin-allInvestments" class="admin-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">All Investments</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <div class="overflow-x-auto">
+                                    <table class="w-full">
+                                        <thead>
+                                            <tr class="text-left text-gray-400 text-sm border-b border-white/10">
+                                                <th class="pb-3">User</th>
+                                                <th class="pb-3">Plan</th>
+                                                <th class="pb-3">Amount</th>
+                                                <th class="pb-3">ROI</th>
+                                                <th class="pb-3">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="investmentsTable">
+                                            <tr class="text-center py-4">
+                                                <td colspan="5" class="py-4 text-gray-400">No investments yet</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deposits Management -->
+                        <div id="admin-deposits" class="admin-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Deposit Requests</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <div id="depositsList" class="space-y-4">
+                                    <p class="text-gray-400 text-center py-4">No pending deposits</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Withdrawals Management -->
+                        <div id="admin-withdrawals" class="admin-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Withdrawal Requests</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <div id="withdrawalsList" class="space-y-4">
+                                    <p class="text-gray-400 text-center py-4">No pending withdrawals</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Settings -->
+                        <div id="admin-settings" class="admin-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Platform Settings</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10 max-w-2xl">
+                                <h3 class="text-lg font-semibold mb-4">General Settings</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Platform Name</label>
+                                        <input type="text" value="Mrs Monica Geingos Initiative" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Signup Bonus Amount ($)</label>
+                                        <input type="number" id="bonusAmount" value="5" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Minimum Deposit ($)</label>
+                                        <input type="number" value="50" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Maintenance Mode</label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="w-4 h-4 text-purple-500 bg-gray-800 border-white/20 rounded">
+                                            <span class="ml-2 text-sm text-gray-400">Enable maintenance mode</span>
+                                        </label>
+                                    </div>
+                                    <button onclick="saveSettings()" class="bg-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-purple-400 transition">
+                                        Save Settings
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notifications -->
+                        <div id="admin-notifications" class="admin-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Account Notifications</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <div class="flex items-center justify-between mb-4">
+                                    <p class="text-gray-400 text-sm">Auto-notifications for account creation and admin actions.</p>
+                                    <button onclick="clearNotifications()" class="text-sm text-red-400 hover:text-red-300">Clear All</button>
+                                </div>
+                                <div id="notificationsList" class="space-y-4">
+                                    <p class="text-gray-400 text-center py-4">No notifications yet</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Support Chat -->
+                        <div id="admin-support" class="admin-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Customer Service Chat</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div>
+                                        <p class="font-semibold">User Conversations</p>
+                                        <p class="text-sm text-gray-400">Respond to users privately from here.</p>
+                                    </div>
+                                    <button onclick="refreshSupportChats()" class="text-sm text-purple-300 hover:text-purple-200">
+                                        <i class="fas fa-sync-alt mr-1"></i>Refresh
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                    <div class="lg:col-span-1 bg-gray-800/50 rounded-lg p-4 h-96 overflow-y-auto" id="adminSupportUsers">
+                                        <p class="text-gray-400 text-center">No chats yet</p>
+                                    </div>
+                                    <div class="lg:col-span-2">
+                                        <div id="adminSupportChat" class="bg-gray-800/50 rounded-lg p-4 h-80 overflow-y-auto space-y-4">
+                                            <div class="text-center text-gray-500 text-sm">Select a user to view messages.</div>
+                                        </div>
+                                        <form onsubmit="sendAdminSupportMessage(event)" class="mt-4 flex gap-3">
+                                            <input type="text" id="adminSupportMessage" class="flex-1 bg-gray-800 border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500" placeholder="Reply to user..." required>
+                                            <button type="submit" class="bg-purple-500 text-white px-5 py-3 rounded-lg font-bold hover:bg-purple-400 transition">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Broadcast -->
+                        <div id="admin-broadcast" class="admin-section hidden-section">
+                            <h2 class="text-2xl font-bold mb-6">Broadcast Message</h2>
+                            <div class="card-gradient rounded-xl p-6 border border-white/10 max-w-2xl">
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium mb-2">Message Title</label>
+                                    <input type="text" id="broadcastTitle" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3" placeholder="Important Announcement">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium mb-2">Message Content</label>
+                                    <textarea id="broadcastMessage" class="w-full bg-gray-800 border border-white/20 rounded-lg px-4 py-3 h-32" placeholder="Enter your message to all users..."></textarea>
+                                </div>
+                                <button onclick="sendBroadcast()" class="bg-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-purple-400 transition">
+                                    <i class="fas fa-paper-plane mr-2"></i>Send to All Users
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white">MGI</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Mrs Monica Geingos Initiative - Empowering investors worldwide with secure, profitable investment solutions.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" onclick="showSection('home')" class="hover:text-yellow-500">Home</a></li>
+                        <li><a href="#" onclick="showSection('about')" class="hover:text-yellow-500">About Us</a></li>
+                        <li><a href="#" onclick="showSection('plans')" class="hover:text-yellow-500">Investment Plans</a></li>
+                        <li><a href="#" onclick="showSection('testimonials')" class="hover:text-yellow-500">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-yellow-500">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-yellow-500">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-yellow-500">Risk Disclosure</a></li>
+                        <li><a href="#" class="hover:text-yellow-500">AML Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-yellow-500 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-yellow-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-yellow-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-yellow-500 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2024 Mrs Monica Geingos Initiative. All rights reserved.</p>
+                <p class="mt-2">Licensed and regulated investment platform. Registration number: MGI-2024-001</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-4 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <div class="flex items-center gap-3">
+            <i id="toastIcon" class="fas fa-check-circle text-green-400 text-xl"></i>
+            <p id="toastMessage">Success!</p>
+        </div>
+    </div>
+
+    <script>
+        // Data Store
+        let users = JSON.parse(localStorage.getItem('mgi_users')) || [];
+        let currentUser = JSON.parse(localStorage.getItem('mgi_current_user')) || null;
+        let admin = JSON.parse(localStorage.getItem('mgi_admin')) || null;
+        let investments = JSON.parse(localStorage.getItem('mgi_investments')) || [];
+        let transactions = JSON.parse(localStorage.getItem('mgi_transactions')) || [];
+        let withdrawals = JSON.parse(localStorage.getItem('mgi_withdrawals')) || [];
+        let deposits = JSON.parse(localStorage.getItem('mgi_deposits')) || [];
+        let notifications = JSON.parse(localStorage.getItem('mgi_notifications')) || [];
+        let userNotifications = JSON.parse(localStorage.getItem('mgi_user_notifications')) || {};
+        let supportMessages = JSON.parse(localStorage.getItem('mgi_support_messages')) || {};
+        let selectedPayment = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateAdminStats();
+            if (currentUser) {
+                updateDashboard();
+            }
+            updateAdminNotificationsBadge();
+            refreshSupportChats();
+        });
+
+        // Section Navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.add('hidden-section'));
+            document.getElementById(sectionId).classList.remove('hidden-section');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Dashboard Navigation
+        function showDashboardSection(sectionId) {
+            document.querySelectorAll('.dash-section').forEach(s => s.classList.add('hidden-section'));
+            document.getElementById('dash-' + sectionId).classList.remove('hidden-section');
+            
+            document.querySelectorAll('.dash-nav').forEach(n => {
+                n.classList.remove('bg-yellow-500/20', 'text-yellow-500');
+                n.classList.add('text-gray-400', 'hover:bg-white/10', 'hover:text-white');
+            });
+            event.target.closest('a').classList.add('bg-yellow-500/20', 'text-yellow-500');
+            event.target.closest('a').classList.remove('text-gray-400', 'hover:bg-white/10', 'hover:text-white');
+        }
+
+        // Admin Section Navigation
+        function showAdminSection(sectionId) {
+            document.querySelectorAll('.admin-section').forEach(s => s.classList.add('hidden-section'));
+            document.getElementById('admin-' + sectionId).classList.remove('hidden-section');
+            
+            document.querySelectorAll('.admin-nav').forEach(n => {
+                n.classList.remove('bg-purple-500/20', 'text-purple-400');
+                n.classList.add('text-gray-400', 'hover:bg-purple-500/10', 'hover:text-white');
+            });
+            event.target.closest('a').classList.add('bg-purple-500/20', 'text-purple-400');
+            event.target.closest('a').classList.remove('text-gray-400', 'hover:bg-purple-500/10', 'hover:text-white');
+        }
+
+        // Toggle Sidebar (Mobile)
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
+        function toggleAdminSidebar() {
+            const sidebar = document.getElementById('adminSidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
+        // Toast Notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+            
+            toastMessage.textContent = message;
+            toastIcon.className = type === 'success' ? 'fas fa-check-circle text-green-400 text-xl' : 'fas fa-exclamation-circle text-red-400 text-xl';
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Handle Login
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                currentUser = user;
+                localStorage.setItem('mgi_current_user', JSON.stringify(user));
+                showToast('Login successful! Welcome back, ' + user.name);
+                updateDashboard();
+                showSection('dashboard');
+                
+                // Notify user of any recent admin actions
+                checkForAdminNotifications(user.id);
+            } else {
+                showToast('Invalid email or password', 'error');
+            }
+        }
+
+        // Handle Registration
+        function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('regConfirmPassword').value;
+            const refCode = document.getElementById('regRef').value;
+            
+            if (password !== confirmPassword) {
+                showToast('Passwords do not match', 'error');
+                return;
+            }
+            
+            if (users.find(u => u.email === email)) {
+                showToast('Email already registered', 'error');
+                return;
+            }
+            
+            // Generate unique referral code
+            const referralCode = 'MGI-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+            
+            const newUser = {
+                id: Date.now(),
+                name,
+                email,
+                phone,
+                password,
+                referralCode,
+                balance: 5.00, // Signup bonus
+                referredBy: refCode || null,
+                createdAt: new Date().toISOString(),
+                status: 'active'
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('mgi_users', JSON.stringify(users));
+            
+            // Add signup bonus transaction
+            transactions.push({
+                id: Date.now(),
+                userId: newUser.id,
+                type: 'signup_bonus',
+                amount: 5.00,
+                status: 'completed',
+                date: new Date().toISOString()
+            });
+            localStorage.setItem('mgi_transactions', JSON.stringify(transactions));
+
+            addUserNotification(newUser.id, {
+                title: 'Welcome Bonus Credited',
+                message: 'You received a $5 signup bonus. Start investing now!'
+            });
+
+            // Create admin notification
+            addNotification({
+                title: 'New Account Created',
+                message: `${name} (${email}) just created an account and received the $5 signup bonus.`,
+                type: 'signup'
+            });
+            
+            // Credit referrer if exists
+            if (refCode) {
+                const referrer = users.find(u => u.referralCode === refCode);
+                if (referrer) {
+                    referrer.balance += 5;
+                    localStorage.setItem('mgi_users', JSON.stringify(users));
+                    transactions.push({
+                        id: Date.now(),
+                        userId: referrer.id,
+                        type: 'referral_bonus',
+                        amount: 5.00,
+                        status: 'completed',
+                        date: new Date().toISOString(),
+                        note: 'Referral bonus from ' + email
+                    });
+                    localStorage.setItem('mgi_transactions', JSON.stringify(transactions));
+
+                    addUserNotification(referrer.id, {
+                        title: 'Referral Bonus Earned',
+                        message: `You received a $5 referral bonus from ${email}.`
+                    });
+
+                    addNotification({
+                        title: 'Referral Bonus Paid',
+                        message: `${referrer.name} received a $5 referral bonus from ${email}.`,
+                        type: 'bonus'
+                    });
+                }
+            }
+            
+            currentUser = newUser;
+            localStorage.setItem('mgi_current_user', JSON.stringify(newUser));
+            
+            showToast('Account created! $5 signup bonus credited!');
+            updateDashboard();
+            showSection('dashboard');
+        }
+
+        // Handle Admin Login
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const adminId = document.getElementById('adminId').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            // Demo admin credentials
+            if (adminId === 'admin' && password === 'admin123') {
+                admin = { id: 1, name: 'Super Admin', role: 'admin' };
+                localStorage.setItem('mgi_admin', JSON.stringify(admin));
+                showToast('Admin login successful!');
+                updateAdminStats();
+                showSection('adminDashboard');
+            } else {
+                showToast('Invalid admin credentials', 'error');
+            }
+        }
+
+        // Update User Dashboard
+        function updateDashboard() {
+            if (!currentUser) return;
+            
+            // Refresh current user data from storage
+            const updatedUser = users.find(u => u.id === currentUser.id);
+            if (updatedUser) {
+                currentUser = updatedUser;
+                localStorage.setItem('mgi_current_user', JSON.stringify(currentUser));
+            }
+            
+            document.getElementById('dashUserName').textContent = currentUser.name;
+            document.getElementById('dashBalance').textContent = currentUser.balance.toFixed(2);
+            document.getElementById('overviewBalance').textContent = currentUser.balance.toFixed(2);
+            document.getElementById('withdrawBalance').textContent = currentUser.balance.toFixed(2);
+            document.getElementById('referralCode').textContent = currentUser.referralCode;
+            
+            // Update transaction history
+            const userTransactions = transactions.filter(t => t.userId === currentUser.id);
+            const transactionTable = document.getElementById('transactionTable');
+            transactionTable.innerHTML = userTransactions.map(t => {
+                const typeLabel = t.type === 'signup_bonus' ? 'Signup Bonus' : t.type === 'referral_bonus' ? 'Referral Bonus' : t.type === 'profit_credit' ? 'Profit Credit' : t.type === 'bonus_credit' ? 'Bonus Credit' : t.type === 'withdrawal' ? 'Withdrawal' : 'Transaction';
+                const typeIcon = t.type === 'signup_bonus' ? 'fa-gift text-yellow-500' : t.type === 'referral_bonus' ? 'fa-user-plus text-green-500' : t.type === 'profit_credit' ? 'fa-chart-line text-blue-400' : t.type === 'bonus_credit' ? 'fa-star text-purple-400' : 'fa-arrow-up text-red-400';
+                const amountPrefix = t.amount >= 0 ? '+' : '';
+                return `
+                <tr class="border-b border-white/5">
+                    <td class="py-3">${new Date(t.date).toLocaleDateString()}</td>
+                    <td class="py-3"><i class="fas ${typeIcon} mr-2"></i>${typeLabel}</td>
+                    <td class="py-3 ${t.amount >= 0 ? 'text-green-400' : 'text-red-400'}">${amountPrefix}$${Math.abs(t.amount).toFixed(2)}</td>
+                    <td class="py-3"><span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">${t.status || 'Completed'}</span></td>
+                </tr>
+                `;
+            }).join('') || '<tr><td colspan="4" class="py-4 text-center text-gray-400">No transactions yet</td></tr>';
+
+            renderUserNotifications();
+            renderSupportChat();
+            
+            updateAdminStats();
+        }
+
+        // Update Admin Stats
+        function updateAdminStats() {
+            document.getElementById('totalUsers').textContent = users.length;
+            document.getElementById('totalDeposits').textContent = '$' + deposits.reduce((sum, d) => sum + d.amount, 0).toFixed(2);
+            document.getElementById('totalWithdrawals').textContent = '$' + withdrawals.reduce((sum, w) => sum + w.amount, 0).toFixed(2);
+            document.getElementById('activeInvestmentsCount').textContent = investments.length;
+            
+            // Update users table
+            const usersTable = document.getElementById('adminUsersTable');
+            usersTable.innerHTML = users.slice(0, 5).map(u => `
+                <tr class="border-b border-white/5">
+                    <td class="py-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-yellow-500/20 rounded-full flex items-center justify-center text-yellow-500 text-sm font-bold">${u.name.charAt(0)}</div>
+                            <span>${u.name}</span>
+                        </div>
+                    </td>
+                    <td class="py-3 text-gray-400">${u.email}</td>
+                    <td class="py-3 text-green-400">$${u.balance.toFixed(2)}</td>
+                    <td class="py-3"><span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">Active</span></td>
+                    <td class="py-3">
+                        <button onclick="viewUser(${u.id})" class="text-purple-400 hover:text-purple-300 mr-2"><i class="fas fa-eye"></i></button>
+                        <button onclick="editUser(${u.id})" class="text-blue-400 hover:text-blue-300 mr-2"><i class="fas fa-edit"></i></button>
+                        <button onclick="showUserDashboard(${u.id})" class="text-yellow-500 hover:text-yellow-300"><i class="fas fa-desktop"></i></button>
+                    </td>
+                </tr>
+            `).join('') || '<tr><td colspan="5" class="py-4 text-center text-gray-400">No users registered</td></tr>';
+
+            // Users management table
+            const usersManagementTable = document.getElementById('usersManagementTable');
+            usersManagementTable.innerHTML = users.map(u => `
+                <tr class="border-b border-white/5">
+                    <td class="py-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-yellow-500/20 rounded-full flex items-center justify-center text-yellow-500 text-sm font-bold">${u.name.charAt(0)}</div>
+                            <span>${u.name}</span>
+                        </div>
+                    </td>
+                    <td class="py-3 text-gray-400">${u.email}</td>
+                    <td class="py-3 text-green-400">$${u.balance.toFixed(2)}</td>
+                    <td class="py-3"><span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">${u.status || 'active'}</span></td>
+                    <td class="py-3">
+                        <button onclick="viewUser(${u.id})" class="text-purple-400 hover:text-purple-300 mr-2"><i class="fas fa-eye"></i></button>
+                        <button onclick="editUser(${u.id})" class="text-blue-400 hover:text-blue-300 mr-2"><i class="fas fa-edit"></i></button>
+                        <button onclick="showUserDashboard(${u.id})" class="text-yellow-500 hover:text-yellow-300"><i class="fas fa-desktop"></i></button>
+                    </td>
+                </tr>
+            `).join('') || '<tr><td colspan="5" class="py-4 text-center text-gray-400">No users registered</td></tr>';
+
+            // Populate user select for portfolio editing
+            const select = document.getElementById('portfolioUserSelect');
+            if (select) {
+                select.innerHTML = '<option value="">Choose a user</option>' + users.map(u => `
+                    <option value="${u.id}">${u.name} (${u.email})</option>
+                `).join('');
+            }
+
+            updateAdminNotificationsBadge();
+            renderNotifications();
+        }
+
+        // Select Plan
+        function selectPlan(planName, amount) {
+            if (!currentUser) {
+                showToast('Please login to select a plan', 'error');
+                showSection('login');
+                return;
+            }
+            showToast(`Selected ${planName} plan ($${amount})`);
+            showDashboardSection('deposit');
+            document.getElementById('depositAmount').value = amount;
+        }
+
+        // Select Payment Method
+        function selectPayment(method) {
+            selectedPayment = method;
+            document.querySelectorAll('.payment-method').forEach(m => {
+                m.classList.remove('border-yellow-500', 'bg-yellow-500/20');
+                m.classList.add('border-white/20');
+            });
+            event.target.closest('.payment-method').classList.add('border-yellow-500', 'bg-yellow-500/20');
+            event.target.closest('.payment-method').classList.remove('border-white/20');
+        }
+
+        // Process Deposit
+        function processDeposit() {
+            const amount = parseFloat(document.getElementById('depositAmount').value);
+            
+            if (!currentUser) {
+                showToast('Please login first', 'error');
+                showSection('login');
+                return;
+            }
+            
+            if (!amount || amount < 50) {
+                showToast('Minimum deposit is $50', 'error');
+                return;
+            }
+            
+            if (!selectedPayment) {
+                showToast('Please select a payment method', 'error');
+                return;
+            }
+            
+            const deposit = {
+                id: Date.now(),
+                userId: currentUser.id,
+                amount,
+                method: selectedPayment,
+                status: 'pending',
+                date: new Date().toISOString()
+            };
+            
+            deposits.push(deposit);
+            localStorage.setItem('mgi_deposits', JSON.stringify(deposits));
+            
+            showToast('Deposit request submitted! Waiting for confirmation.');
+        }
+
+        // Process Withdrawal
+        function processWithdrawal() {
+            const amount = parseFloat(document.getElementById('withdrawAmount').value);
+            const wallet = document.getElementById('walletAddress').value;
+            
+            if (!currentUser) {
+                showToast('Please login first', 'error');
+                return;
+            }
+            
+            if (!amount || amount < 10) {
+                showToast('Minimum withdrawal is $10', 'error');
+                return;
+            }
+            
+            if (amount > currentUser.balance) {
+                showToast('Insufficient balance', 'error');
+                return;
+            }
+            
+            if (!wallet) {
+                showToast('Please enter wallet address', 'error');
+                return;
+            }
+            
+            currentUser.balance -= amount;
+            localStorage.setItem('mgi_current_user', JSON.stringify(currentUser));
+            
+            const userIndex = users.findIndex(u => u.id === currentUser.id);
+            users[userIndex].balance = currentUser.balance;
+            localStorage.setItem('mgi_users', JSON.stringify(users));
+            
+            const withdrawal = {
+                id: Date.now(),
+                userId: currentUser.id,
+                userName: currentUser.name,
+                amount,
+                wallet,
+                status: 'pending',
+                date: new Date().toISOString()
+            };
+            
+            withdrawals.push(withdrawal);
+            localStorage.setItem('mgi_withdrawals', JSON.stringify(withdrawals));
+            
+            transactions.push({
+                id: Date.now(),
+                userId: currentUser.id,
+                type: 'withdrawal',
+                amount: -amount,
+                status: 'pending',
+                date: new Date().toISOString()
+            });
+            localStorage.setItem('mgi_transactions', JSON.stringify(transactions));
+
+            // Send SMS notification (simulated)
+            sendSMSNotification(currentUser.phone, `Withdrawal request of $${amount.toFixed(2)} submitted. Processing...`);
+            
+            addUserNotification(currentUser.id, {
+                title: 'Withdrawal Request Received',
+                message: `Your withdrawal of $${amount.toFixed(2)} is pending approval. You will be notified once processed.`
+            });
+            
+            showToast('Withdrawal request submitted!');
+            updateDashboard();
+            document.getElementById('withdrawAmount').value = '';
+            document.getElementById('walletAddress').value = '';
+        }
+
+        // Copy Referral Code
+        function copyReferralCode() {
+            const code = currentUser.referralCode;
+            navigator.clipboard.writeText(code);
+            showToast('Referral code copied!');
+        }
+
+        // Logout
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('mgi_current_user');
+            showToast('Logged out successfully');
+            showSection('home');
+        }
+
+        // Admin Logout
+        function adminLogout() {
+            admin = null;
+            localStorage.removeItem('mgi_admin');
+            showToast('Admin logged out');
+            showSection('home');
+        }
+
+        // Admin Actions
+        function viewUser(userId) {
+            const user = users.find(u => u.id === userId);
+            if (user) {
+                showToast(`Viewing user: ${user.name}`);
+            }
+        }
+
+        function editUser(userId) {
+            const user = users.find(u => u.id === userId);
+            if (user) {
+                const newBalance = prompt('Enter new balance for ' + user.name + ':', user.balance);
+                if (newBalance !== null) {
+                    const userIndex = users.findIndex(u => u.id === userId);
+                    users[userIndex].balance = parseFloat(newBalance);
+                    localStorage.setItem('mgi_users', JSON.stringify(users));
+                    updateAdminStats();
+                    showToast('User balance updated!');
+
+                    // Notify user of balance update
+                    addUserNotification(user.id, {
+                        title: 'Portfolio Updated by Admin',
+                        message: `Admin updated your balance to $${parseFloat(newBalance).toFixed(2)}.`
+                    });
+
+                    addNotification({
+                        title: 'Portfolio Updated',
+                        message: `Admin updated ${user.name}'s balance to $${parseFloat(newBalance).toFixed(2)}.`,
+                        type: 'portfolio'
+                    });
+                }
+            }
+        }
+        
+        function showUserDashboard(userId) {
+            const user = users.find(u => u.id === userId);
+            if (user) {
+                // Show a modal or alert with user dashboard info
+                const userTransactions = transactions.filter(t => t.userId === userId);
+                const transactionCount = userTransactions.length;
+                const totalDeposits = userTransactions
+                    .filter(t => t.type.includes('deposit') || t.type === 'signup_bonus' || t.type === 'referral_bonus')
+                    .reduce((sum, t) => sum + Math.abs(t.amount), 0);
+                
+                const message = `
+User Dashboard Preview:
+Name: ${user.name}
+Email: ${user.email}
+Current Balance: $${user.balance.toFixed(2)}
+Total Transactions: ${transactionCount}
+Total Deposits: $${totalDeposits.toFixed(2)}
+                `;
+                alert(message);
+            }
+        }
+
+        function updateUserPortfolio() {
+            const userId = document.getElementById('portfolioUserSelect').value;
+            const balance = parseFloat(document.getElementById('portfolioBalance').value);
+            const profit = parseFloat(document.getElementById('portfolioProfit').value);
+            const bonus = parseFloat(document.getElementById('portfolioBonus').value);
+            const note = document.getElementById('portfolioNote').value;
+
+            if (!userId) {
+                showToast('Please select a user', 'error');
+                return;
+            }
+
+            const userIndex = users.findIndex(u => u.id === parseInt(userId));
+            if (userIndex === -1) {
+                showToast('User not found', 'error');
+                return;
+            }
+
+            // Store previous values for notification
+            const previousBalance = users[userIndex].balance;
+            let balanceChange = 0;
+            
+            if (!isNaN(balance)) {
+                balanceChange = balance - previousBalance;
+                users[userIndex].balance = balance;
+            }
+
+            if (!isNaN(profit)) {
+                users[userIndex].balance += profit;
+                balanceChange += profit;
+                transactions.push({
+                    id: Date.now(),
+                    userId: users[userIndex].id,
+                    type: 'profit_credit',
+                    amount: profit,
+                    status: 'completed',
+                    date: new Date().toISOString(),
+                    note: 'Admin profit credit'
+                });
+            }
+
+            if (!isNaN(bonus)) {
+                users[userIndex].balance += bonus;
+                balanceChange += bonus;
+                transactions.push({
+                    id: Date.now(),
+                    userId: users[userIndex].id,
+                    type: 'bonus_credit',
+                    amount: bonus,
+                    status: 'completed',
+                    date: new Date().toISOString(),
+                    note: 'Admin bonus credit'
+                });
+            }
+
+            localStorage.setItem('mgi_users', JSON.stringify(users));
+            localStorage.setItem('mgi_transactions', JSON.stringify(transactions));
+
+            // Notify user of portfolio update
+            const changeType = balanceChange > 0 ? 'increased' : 'decreased';
+            const absChange = Math.abs(balanceChange).toFixed(2);
+            
+            addUserNotification(users[userIndex].id, {
+                title: 'Portfolio Updated by Admin',
+                message: `Your account balance has ${changeType} by $${absChange}. ${note ? 'Note: ' + note : ''}`
+            });
+
+            addNotification({
+                title: 'Portfolio Adjustment',
+                message: `Admin updated ${users[userIndex].name}'s portfolio. ${note ? 'Note: ' + note : ''}`,
+                type: 'portfolio'
+            });
+
+            showToast('User portfolio updated!');
+            updateAdminStats();
+            updateDashboard();
+
+            document.getElementById('portfolioBalance').value = '';
+            document.getElementById('portfolioProfit').value = '';
+            document.getElementById('portfolioBonus').value = '';
+            document.getElementById('portfolioNote').value = '';
+        }
+
+        function addNotification({ title, message, type }) {
+            notifications.unshift({
+                id: Date.now(),
+                title,
+                message,
+                type,
+                date: new Date().toISOString()
+            });
+            localStorage.setItem('mgi_notifications', JSON.stringify(notifications));
+            updateAdminNotificationsBadge();
+            renderNotifications();
+        }
+
+        function addUserNotification(userId, { title, message }) {
+            if (!userNotifications[userId]) {
+                userNotifications[userId] = [];
+            }
+            userNotifications[userId].unshift({
+                id: Date.now(),
+                title,
+                message,
+                date: new Date().toISOString()
+            });
+            localStorage.setItem('mgi_user_notifications', JSON.stringify(userNotifications));
+            renderUserNotifications();
+        }
+
+        function renderUserNotifications() {
+            if (!currentUser) return;
+            const list = document.getElementById('userNotificationsList');
+            if (!list) return;
+
+            const items = userNotifications[currentUser.id] || [];
+            if (!items.length) {
+                list.innerHTML = '<p class="text-gray-400 text-center py-4">No notifications yet</p>';
+                return;
+            }
+
+            list.innerHTML = items.map(n => `
+                <div class="bg-gray-800/50 border border-white/10 rounded-lg p-4">
+                    <div class="flex justify-between">
+                        <p class="font-semibold text-white">${n.title}</p>
+                        <span class="text-xs text-yellow-500">NEW</span>
+                    </div>
+                    <p class="text-sm text-gray-400">${n.message}</p>
+                    <p class="text-xs text-gray-500 mt-2">${new Date(n.date).toLocaleString()}</p>
+                </div>
+            `).join('');
+        }
+
+        function clearUserNotifications() {
+            if (!currentUser) return;
+            userNotifications[currentUser.id] = [];
+            localStorage.setItem('mgi_user_notifications', JSON.stringify(userNotifications));
+            renderUserNotifications();
+            showToast('Notifications cleared');
+        }
+
+        function renderSupportChat() {
+            if (!currentUser) return;
+            const chat = document.getElementById('supportChat');
+            if (!chat) return;
+
+            const messages = supportMessages[currentUser.id] || [];
+            if (!messages.length) {
+                chat.innerHTML = '<div class="text-center text-gray-500 text-sm">Start a conversation with our admin support team.</div>';
+                return;
+            }
+
+            chat.innerHTML = messages.map(m => `
+                <div class="${m.sender === 'user' ? 'text-right' : 'text-left'}">
+                    <div class="inline-block ${m.sender === 'user' ? 'bg-yellow-500 text-gray-900' : 'bg-gray-700 text-white'} px-4 py-2 rounded-lg max-w-[80%]">
+                        <p class="text-sm">${m.message}</p>
+                        <p class="text-[10px] opacity-70 mt-1">${new Date(m.date).toLocaleTimeString()}</p>
+                    </div>
+                </div>
+            `).join('');
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        function sendSupportMessage(event) {
+            event.preventDefault();
+            if (!currentUser) return;
+            const input = document.getElementById('supportMessage');
+            const message = input.value.trim();
+            if (!message) return;
+
+            if (!supportMessages[currentUser.id]) {
+                supportMessages[currentUser.id] = [];
+            }
+
+            supportMessages[currentUser.id].push({
+                sender: 'user',
+                message,
+                date: new Date().toISOString()
+            });
+
+            localStorage.setItem('mgi_support_messages', JSON.stringify(supportMessages));
+            input.value = '';
+            renderSupportChat();
+
+            addNotification({
+                title: 'New Support Message',
+                message: `${currentUser.name} sent a support message: "${message}"`,
+                type: 'support'
+            });
+        }
+
+        let selectedSupportUserId = null;
+
+        function refreshSupportChats() {
+            const list = document.getElementById('adminSupportUsers');
+            if (!list) return;
+
+            const entries = Object.keys(supportMessages || {});
+            if (!entries.length) {
+                list.innerHTML = '<p class="text-gray-400 text-center">No chats yet</p>';
+                return;
+            }
+
+            list.innerHTML = entries.map(userId => {
+                const user = users.find(u => u.id === parseInt(userId));
+                if (!user) return '';
+                const lastMessage = supportMessages[userId][supportMessages[userId].length - 1];
+                return `
+                    <button onclick="openSupportChat(${user.id})" class="w-full text-left bg-gray-900/50 hover:bg-purple-500/10 rounded-lg p-3 mb-2">
+                        <p class="font-semibold text-white">${user.name}</p>
+                        <p class="text-xs text-gray-400 truncate">${lastMessage ? lastMessage.message : 'No messages yet'}</p>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function openSupportChat(userId) {
+            selectedSupportUserId = userId;
+            const chat = document.getElementById('adminSupportChat');
+            if (!chat) return;
+
+            const messages = supportMessages[userId] || [];
+            if (!messages.length) {
+                chat.innerHTML = '<div class="text-center text-gray-500 text-sm">No messages yet.</div>';
+                return;
+            }
+
+            chat.innerHTML = messages.map(m => `
+                <div class="${m.sender === 'admin' ? 'text-right' : 'text-left'}">
+                    <div class="inline-block ${m.sender === 'admin' ? 'bg-purple-500 text-white' : 'bg-gray-700 text-white'} px-4 py-2 rounded-lg max-w-[80%]">
+                        <p class="text-sm">${m.message}</p>
+                        <p class="text-[10px] opacity-70 mt-1">${new Date(m.date).toLocaleTimeString()}</p>
+                    </div>
+                </div>
+            `).join('');
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        function sendAdminSupportMessage(event) {
+            event.preventDefault();
+            if (!selectedSupportUserId) {
+                showToast('Select a user to reply', 'error');
+                return;
+            }
+            const input = document.getElementById('adminSupportMessage');
+            const message = input.value.trim();
+            if (!message) return;
+
+            if (!supportMessages[selectedSupportUserId]) {
+                supportMessages[selectedSupportUserId] = [];
+            }
+
+            supportMessages[selectedSupportUserId].push({
+                sender: 'admin',
+                message,
+                date: new Date().toISOString()
+            });
+
+            localStorage.setItem('mgi_support_messages', JSON.stringify(supportMessages));
+            input.value = '';
+            openSupportChat(selectedSupportUserId);
+            refreshSupportChats();
+
+            addUserNotification(selectedSupportUserId, {
+                title: 'Support Reply',
+                message: message
+            });
+        }
+
+        function renderNotifications() {
+            const list = document.getElementById('notificationsList');
+            if (!list) return;
+
+            if (!notifications.length) {
+                list.innerHTML = '<p class="text-gray-400 text-center py-4">No notifications yet</p>';
+                return;
+            }
+
+            list.innerHTML = notifications.map(n => `
+                <div class="bg-gray-800/50 border border-white/10 rounded-lg p-4">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="font-semibold text-white">${n.title}</p>
+                            <p class="text-sm text-gray-400">${n.message}</p>
+                            <p class="text-xs text-gray-500 mt-2">${new Date(n.date).toLocaleString()}</p>
+                        </div>
+                        <span class="text-xs px-2 py-1 rounded-full ${n.type === 'signup' ? 'bg-green-500/20 text-green-400' : n.type === 'bonus' ? 'bg-yellow-500/20 text-yellow-400' : 'bg-purple-500/20 text-purple-400'}">
+                            ${n.type}
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateAdminNotificationsBadge() {
+            const badge = document.getElementById('adminNotifBadge');
+            if (!badge) return;
+            const count = notifications.length;
+            if (count > 0) {
+                badge.textContent = count;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function clearNotifications() {
+            notifications = [];
+            localStorage.setItem('mgi_notifications', JSON.stringify(notifications));
+            renderNotifications();
+            updateAdminNotificationsBadge();
+            showToast('Notifications cleared');
+        }
+
+        // Save Settings
+        function saveSettings() {
+            const bonusAmount = document.getElementById('bonusAmount').value;
+            localStorage.setItem('mgi_bonus_amount', bonusAmount);
+            showToast('Settings saved successfully!');
+        }
+
+        // Broadcast Message
+        function sendBroadcast() {
+            const title = document.getElementById('broadcastTitle').value;
+            const message = document.getElementById('broadcastMessage').value;
+            
+            if (!title || !message) {
+                showToast('Please fill in all fields', 'error');
+                return;
+            }
+            
+            // In a real app, this would send to all users
+            showToast('Broadcast sent to all users!');
+            document.getElementById('broadcastTitle').value = '';
+            document.getElementById('broadcastMessage').value = '';
+        }
+
+        // Contact Form
+        function submitContact(e) {
+            e.preventDefault();
+            showToast('Message sent successfully! We\'ll respond within 24 hours.');
+            e.target.reset();
+        }
+
+        // SMS Notification Simulation
+        function sendSMSNotification(phone, message) {
+            // Simulate sending SMS
+            console.log(`SMS sent to ${phone}: ${message}`);
+            // In a real application, this would connect to an SMS API
+            // For demo purposes, we'll also show a toast notification
+            showToast(`SMS notification sent to ${phone.substring(0, 3)}****${phone.substring(7)}`, 'success');
+        }
+        
+        function checkForAdminNotifications(userId) {
+            // Check if user has any unread admin notifications
+            const userNotifs = userNotifications[userId] || [];
+            const unreadNotifs = userNotifs.filter(n => 
+                n.title.includes('Admin') || 
+                n.title.includes('Portfolio') || 
+                n.title.includes('Withdrawal')
+            );
+            
+            if (unreadNotifs.length > 0) {
+                showToast(`You have ${unreadNotifs.length} new notifications from admin`, 'success');
+            }
+        }
+
+        // Show user dashboard preview to admin
+        function showUserDashboard(userId) {
+            const user = users.find(u => u.id === userId);
+            if (user) {
+                // Show a modal or alert with user dashboard info
+                const userTransactions = transactions.filter(t => t.userId === userId);
+                const transactionCount = userTransactions.length;
+                const totalDeposits = userTransactions
+                    .filter(t => t.type.includes('deposit') || t.type === 'signup_bonus' || t.type === 'referral_bonus')
+                    .reduce((sum, t) => sum + Math.abs(t.amount), 0);
+                
+                const message = `
+User Dashboard Preview:
+Name: ${user.name}
+Email: ${user.email}
+Current Balance: $${user.balance.toFixed(2)}
+Total Transactions: ${transactionCount}
+Total Deposits: $${totalDeposits.toFixed(2)}
+                `;
+                alert(message);
+            }
+        }
+
+        // Update admin time
+        setInterval(() => {
+            if (admin) {
+                document.getElementById('adminTime').textContent = new Date().toLocaleTimeString();
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
